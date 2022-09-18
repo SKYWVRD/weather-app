@@ -10,11 +10,27 @@ async function fetchWeatherData(city){
             }
             throw new Error('City Not Found')
         })
-        const data = await response.json()
-        console.log(data)
+        const rawData = await response.json()
+
+        const formattedData =  await formatWeatherData(rawData.main)
+
+        console.log(formattedData)
 
     }
     catch(err){
         alert(err)
     }
+}
+
+async function formatWeatherData(weatherData){
+    return {
+        'currTemp': weatherData.temp,
+        'maxTemp': weatherData.temp_max,
+        'minTemp': weatherData.temp_min
+    }
+    
+}
+
+export{
+    fetchWeatherData
 }
