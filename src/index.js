@@ -1,6 +1,6 @@
 import{
-    fetchWeatherData
-}from './weatherdata'
+    displayTempData
+}from './ui'
 
 
-fetchWeatherData('London')
+displayTempData();

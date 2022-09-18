@@ -14,7 +14,7 @@ async function fetchWeatherData(city){
 
         const formattedData =  await formatWeatherData(rawData.main)
 
-        console.log(formattedData)
+        return formattedData
 
     }
     catch(err){
@@ -23,10 +23,12 @@ async function fetchWeatherData(city){
 }
 
 async function formatWeatherData(weatherData){
+    const kelvin = 273.15;
+    
     return {
-        'currTemp': weatherData.temp,
-        'maxTemp': weatherData.temp_max,
-        'minTemp': weatherData.temp_min
+        'currTemp': (Number((weatherData.temp-kelvin).toFixed(0))),
+        'maxTemp': (Number((weatherData.temp_max-kelvin).toFixed(0))),
+        'minTemp': (Number((weatherData.temp_min-kelvin).toFixed(0)))
     }
     
 }
