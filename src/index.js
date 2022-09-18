@@ -1,6 +1,1 @@
-import{
-    displayTempData
-}from './ui'
-
-
-displayTempData();
+import './ui'

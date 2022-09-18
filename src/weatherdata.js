@@ -18,7 +18,7 @@ async function fetchWeatherData(city){
 
     }
     catch(err){
-        alert(err)
+        throw (err)
     }
 }
 
