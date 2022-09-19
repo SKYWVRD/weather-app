@@ -13,6 +13,8 @@ const minTemp = document.getElementById('min-temp');
 
 async function displayTempData(city){
     try{
+        clearData();
+        cityName.innerHTML = 'Loading...'
         const data = await fetchWeatherData(city);
         cityName.innerHTML = city
         currTemp.innerHTML = `Current Temperature: ${data.currTemp} \u00B0C`;
@@ -24,6 +26,13 @@ async function displayTempData(city){
     }
     
 
+}
+
+function clearData(){
+    cityName.innerHTML = '';
+    currTemp.innerHTML = '';
+    maxTemp.innerHTML = '';
+    minTemp.innerHTML = '';
 }
 
 searchButton.addEventListener('click', () => {
